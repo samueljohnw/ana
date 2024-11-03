@@ -2,7 +2,9 @@
 
 
 @section('content')
-
+<section style="text-align:center;">
+  <a style="color:#333;" href="{{route('page.landing.seerschool')}}">Check out New Course</a>
+</section>
     <section class="content-wrapper">
       <div class="container">
         <div class="row">
@@ -12,21 +14,9 @@
                 <h3 style="color:#333">
                 Learn more about the gifts of the spirit through one of my e-courses, mentorship or schools.
               </h3>
-              <div class="callout">
-                <h5>Enter your email address to receive a login link.</h5>
-                <div class="grid-container">
-                  <div class="grid-x grid-padding-x">
-                    <div class="medium-8 cell">
-                      <form>
-                        <label>&nbsp;
-                          <input type="text" placeholder="E-Mail Address">
-                        </label>
-                          <input type="submit" value="Log In" class="btn"></input>
-                      </form>
-                    </div>
-                </div>
-              </div>
-              </div>
+              @unless (Auth::check())
+                @include('snippets.loginform')
+              @endunless
               <div class="grid-x grid-margin-x">
               <div class="cell small-12 medium-12 large-12">
               <h3>

@@ -25,6 +25,9 @@
               <ul class="vertical menu footer-menu footer-menu-new">
                 <li><a href="/trainings/">Trainings</a></li>
                 <li><a href="/eagles-network/">Eagles Network</a></li>
+                @auth
+                  <li><a href="/logout">Logout</a></li>
+                @endauth
               </ul>
             </div>
 

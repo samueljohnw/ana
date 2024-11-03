@@ -16,21 +16,9 @@
                 @endisset
                 </h2>
 
-              <div class="callout">
-                <h5>If you already have an account, enter your email address to receive a login link.</h5>
-                <div class="grid-container">
-                  <div class="grid-x grid-padding-x">
-                    <div class="medium-8 cell">
-                      <form>
-                        <label>&nbsp;
-                          <input type="text" placeholder="E-Mail Address">
-                        </label>
-                          <input type="submit" value="Log In" class="btn"></input>
-                      </form>
-                    </div>
-                </div>
-              </div>
-              </div>
+                @unless (Auth::check())
+                  @include('snippets.loginform')
+                @endunless
               <nav aria-label="You are here:" role="navigation">
                 <ul class="breadcrumbs">
                 @isset($courses)
