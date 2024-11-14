@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PurchaseController;
 
 Route::get('/', function () {
     return view('home');
@@ -20,3 +21,4 @@ Route::get('seer-school', [ContentController::class, 'seerschool'])->name('page.
 Route::post('auth/attempt', [AuthController::class, 'attempt'])->name('attempt');
 Route::get('auth/token/{token}', [AuthController::class, 'login'])->name('login.user');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('purchase/{price_id}', [PurchaseController::class, 'purchase'])->name('purchase');

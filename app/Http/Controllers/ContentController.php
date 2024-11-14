@@ -37,6 +37,7 @@ class ContentController extends Controller
         return view('page.eaglesnetwork');  
     }
     function seerschool() {
+        
         return view('page.landing.seerschool');  
     }
 }
