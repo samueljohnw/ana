@@ -23,7 +23,7 @@
             <!-- Navigation Links Section 2 -->
             <div class="medium-2 small-12">
               <ul class="vertical menu footer-menu footer-menu-new">
-                <li><a href="/trainings/">Trainings</a></li>
+                <li><a href="/training/">Trainings</a></li>
                 <li><a href="/eagles-network/">Eagles Network</a></li>
                 @auth
                   <li><a href="/logout">Logout</a></li>

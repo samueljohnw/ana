@@ -58,10 +58,10 @@ class User extends Resource
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', Rules\Password::defaults())
-                ->updateRules('nullable', Rules\Password::defaults()),
+            // Password::make('Password')
+            //     ->onlyOnForms()
+            //     ->creationRules('required', Rules\Password::defaults())
+            //     ->updateRules('nullable', Rules\Password::defaults()),
         ];
     }
 

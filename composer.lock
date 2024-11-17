@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b2349484db6eec7bcea2bacda44dce8",
+    "content-hash": "b70562f8c533d6b36ce76fd1060bccb6",
     "packages": [
         {
             "name": "brick/math",
@@ -192,6 +192,60 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "convertkit/convertkitapi",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ConvertKit/ConvertKitSDK-PHP.git",
+                "reference": "20c7bcad4e1637bd37fa2ca917720e2b49e161a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ConvertKit/ConvertKitSDK-PHP/zipball/20c7bcad4e1637bd37fa2ca917720e2b49e161a4",
+                "reference": "20c7bcad4e1637bd37fa2ca917720e2b49e161a4",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "monolog/monolog": "^2.5|^3.0",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.3",
+                "vlucas/phpdotenv": "^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ConvertKit_API\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "ConvertKit and contributors",
+                    "homepage": "https://github.com/convertkit/convertkitsdk-php/contributors"
+                }
+            ],
+            "description": "ConvertKit PHP SDK for the ConvertKit API",
+            "homepage": "https://convertkit.com/",
+            "keywords": [
+                "ConvertKit",
+                "Forms",
+                "api"
+            ],
+            "support": {
+                "issues": "https://github.com/ConvertKit/ConvertKitSDK-PHP/issues",
+                "source": "https://github.com/ConvertKit/ConvertKitSDK-PHP/tree/2.0"
+            },
+            "time": "2024-04-17T13:11:13+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

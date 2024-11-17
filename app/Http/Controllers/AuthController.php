@@ -19,7 +19,6 @@ class AuthController extends Controller
         ]);
         
         // if user exists proceed, otherwise check for spam and create user.
-
         $user = User::where('email', $request->email)->first();
 
         if(!$user){
@@ -29,7 +28,6 @@ class AuthController extends Controller
             $user = new User;
             $user->name = 'name';
             $user->email = $request->email;
-            //$user->save();
 
         }
 
