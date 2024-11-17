@@ -3,36 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Purchase;
 
 class PurchaseController extends Controller
 {
     function purchase($product_id, Request $request ) {
-       // dd($request->user()->checkout('price_1QGwJO4t1cavPEy4uVJOG9dB'));
-        // return $request->user()->checkout('price_1QGwJO4t1cavPEy4uVJOG9dB');
-        {
-            $plan = Plan::findOrFail($request->get('plan'));
-    
-            if($request->user()->subscribedToPlan($plan->stripe_plan, $plan->name)) {
-                
-                $notification = [
-                    'type' => 'error',
-                    'message' => 'You are already subscribed to this plan!',
-                ];
-            } else {
-            
-                $request->user()
-                    ->newSubscription($plan->name, $plan->stripe_plan)
-                    ->create($request->stripeToken);
-    
-                $notification = [
-                    'type' => 'success',
-                    'message' => 'Successfully subscribed to ' . $plan->name . ' plan!',
-                ];
-        }
-    
-            return redirect(route('page.landing.seerschool'))->with($notification);
-        }
-        
+
+        dd(auth()->user());
+        $purchase = new Purchase;
+        $purchase->user_id = auth()->user();
+        $purchase->course_id = 2;
+        $purchase->product_id = $product_id;
+        $purchase->save();
+ 
+        return redirect('welcome');
     }
 
     function seerschool(){}

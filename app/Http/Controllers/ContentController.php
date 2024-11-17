@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Http\Controllers\CourseController;
+use App\Models\Course;
 
 class ContentController extends Controller
 {
@@ -37,7 +38,13 @@ class ContentController extends Controller
         return view('page.eaglesnetwork');  
     }
     function seerschool() {
+        $course = Course::where('status','published')->first();
         
-        return view('page.landing.seerschool');  
+        return view('page.landing.seerschool',['course'=>$course]);  
+    }
+
+    function welcome(){
+        return view('page.welcome');  
+
     }
 }

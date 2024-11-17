@@ -12,6 +12,7 @@
                     @csrf
                     <label>&nbsp;
                         <input name="email" type="text" placeholder="E-Mail Address" value="samueljwerner@gmail.com">
+                        <div style="display:none"><input type="text" name="weetard"></div>
                     </label>
                     <input type="submit" value="Log In" class="btn"></input>
                 </form>

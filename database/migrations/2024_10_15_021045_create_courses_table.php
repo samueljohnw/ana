@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('status')->nullable();
             $table->string('slug')->nullable();
+            $table->string('price_id')->nullable();
             $table->decimal('price', 8, 2); // assuming courses have a price
             $table->timestamps();
         });

@@ -21,7 +21,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'login_token',
+        'login_token_expires_at'
     ];
 
     /**
@@ -30,7 +31,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 
@@ -42,7 +42,6 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'password' => 'hashed',
             'login_token_expires_at' => 'datetime',
         ];
     }
@@ -50,5 +49,10 @@ class User extends Authenticatable
     protected $dates = [
         'login_token_expires_at'
     ];
+
+    public function course()
+    {
+        return $this->belongsToMany(Course::class, 'purchases');
+    }
 
 }

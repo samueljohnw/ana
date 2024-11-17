@@ -18,14 +18,19 @@ class AuthController extends Controller
             'email' => 'required|email',
         ]);
         
-        // if user exists proceed, otherwise fail.
+        // if user exists proceed, otherwise check for spam and create user.
 
         $user = User::where('email', $request->email)->first();
 
         if(!$user){
-            return back()->withErrors([
-                'email' => 'Check your inbox! If you have an account the login link is one the way.',
-            ])->withInput();
+            
+            $this->honeypot($request);
+
+            $user = new User;
+            $user->name = 'name';
+            $user->email = $request->email;
+            //$user->save();
+
         }
 
         // Generate and store token with expiration time
@@ -75,5 +80,13 @@ class AuthController extends Controller
 
         // Redirect the user to the login page or home page
         return redirect('/');
+    }
+
+    function honeypot($inputBox) {
+
+        if($inputBox->filled('weetard')){
+            return abort(422,'Spam Detected');
+        }
+        return;
     }
 }

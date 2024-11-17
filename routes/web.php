@@ -21,4 +21,7 @@ Route::get('seer-school', [ContentController::class, 'seerschool'])->name('page.
 Route::post('auth/attempt', [AuthController::class, 'attempt'])->name('attempt');
 Route::get('auth/token/{token}', [AuthController::class, 'login'])->name('login.user');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('purchase/{price_id}', [PurchaseController::class, 'purchase'])->name('purchase');
+
+Route::get('welcome', [ContentController::class, 'welcome'])->name('welcome');
