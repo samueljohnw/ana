@@ -26,9 +26,9 @@ class AuthController extends Controller
             $this->honeypot($request);
 
             $user = new User;
-            $user->name = 'name';
+            $user->name = ' ';
             $user->email = $request->email;
-
+            $user->save();
         }
 
         // Generate and store token with expiration time
@@ -37,12 +37,11 @@ class AuthController extends Controller
         $user->login_token_expires_at = Carbon::now()->addMinutes(15);
         $user->save();
 
-        Mail::to($user)->send(new LoginLink($user));
         // Send login link email with token
         Mail::to($user)->send(new LoginLink($user, $token));
 
         return back()->withErrors([
-            'email' => 'Check your inbox! If you have an account the login link is one the way.',
+            'email' => 'If this email exists, a login link has been sent.',
         ])->withInput();
  
     }
@@ -57,6 +56,7 @@ class AuthController extends Controller
             // Clear token after login
             $user->login_token = null;
             $user->login_token_expires_at = null;
+            $user->email_verified = true;
             $user->save();
 
             return redirect()->intended('training');   

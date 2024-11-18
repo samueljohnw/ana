@@ -42,7 +42,7 @@ class Asset extends Resource
 
      public static function label()
      {
-        return 'Course Posts';
+        return 'Posts';
      }
 
 
