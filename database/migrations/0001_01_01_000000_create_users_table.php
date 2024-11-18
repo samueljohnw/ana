@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('login_token')->nullable();
             $table->datetime('login_token_expires_at')->nullable();
             $table->string('password')->nullable();
-            $table->boolean('email_verified')->default('false');
+            $table->boolean('email_verified')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
