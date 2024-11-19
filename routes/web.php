@@ -5,6 +5,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\JunkController;
 
 Route::get('/', function () {
     return view('home');
@@ -25,3 +26,15 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('purchase/{price_id}', [PurchaseController::class, 'purchase'])->name('purchase');
 
 Route::get('welcome', [ContentController::class, 'welcome'])->name('welcome');
+
+Route::get('csv', function () {
+    $insert = new JunkController;
+
+    foreach($insert->courses() as $course)
+    {
+
+        $insert->read($course);
+    }
+    return view('insert',['courses'=> $insert->courses()]);
+});
+Route::post('csv', [JunkController::class, 'read'])->name('csv.upload');

@@ -53,7 +53,7 @@ class Course extends Resource
             ID::make()->sortable()->hideFromIndex()->hideFromDetail(),
             Text::make('Title')->sortable(),
             Slug::make('Slug')->from('Title')->separator('-')->hideFromIndex(),
-            Image::make('Featured Image')->disk('public')->prunable(),
+            Image::make('Featured Image')->disk('public')->path('uploads/')->prunable(),
             Select::make('Status')
             ->options([
                 'draft' => 'Draft',

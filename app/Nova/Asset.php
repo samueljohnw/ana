@@ -67,7 +67,7 @@ class Asset extends Resource
             ID::make()->sortable()->hideFromIndex()->hideFromDetail(),
             Text::make('Title')->sortable()->rules('required'),
             Slug::make('Slug')->from('Title')->separator('-')->hideFromIndex(),
-            Image::make('Featured Image', 'featuredImage')->disk('public')->prunable()->hideFromIndex(),            
+            Image::make('Featured Image', 'featuredImage')->disk('public')->path('uploads/')->prunable()->hideFromIndex(),            
             Textarea::make('Description')->rules('required'),
             BelongsTo::make('Course', 'course', \App\Nova\Course::class)->searchable(),
             URL::make('Url')->rules('required')->hideFromIndex(),

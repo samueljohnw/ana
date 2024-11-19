@@ -14,6 +14,13 @@ class Course extends Model
     {
         return $this->hasMany(Asset::class);
     }
+    protected $fillable = [
+        'title',
+        'status',
+        'slug',
+        'price',
+        'type'
 
+    ];
     
 }
