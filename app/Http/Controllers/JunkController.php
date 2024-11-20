@@ -81,7 +81,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('March 2020', '-'),
                 'purchased_at' => '2020-03-01',
                 'price'=>80.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/march-2020.csv'
+                'filepath'=> '/home/forge/CSV/march-2020.csv'
             ];
     
             $july2020 = [
@@ -91,7 +91,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('July 2020', '-'),
                 'purchased_at' => '2020-07-01',
                 'price'=>80.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/july-2020.csv'
+                'filepath'=> '/home/forge/CSV/july-2020.csv'
 
             ];        
             $september2020 = [
@@ -101,7 +101,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('September 2020', '-'),
                 'purchased_at' => '2020-09-01',
                 'price'=>80.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/september-2020.csv'
+                'filepath'=> '/home/forge/CSV/september-2020.csv'
             ];          
             $december2020 = [
                 'title' => 'December 2020',
@@ -110,7 +110,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('December 2020', '-'),
                 'purchased_at' => '2020-12-01',
                 'price'=>80.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/december-2020.csv'
+                'filepath'=> '/home/forge/CSV/december-2020.csv'
 
             ];   
             
@@ -121,7 +121,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('May 2021', '-'),
                 'purchased_at' => '2021-5-01',
                 'price'=>80.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/may-2021.csv'
+                'filepath'=> '/home/forge/CSV/may-2021.csv'
 
             ];   
     
@@ -132,7 +132,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('October 2021', '-'),
                 'purchased_at' => '2021-10-01',
                 'price'=>80.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/october-2021.csv'
+                'filepath'=> '/home/forge/CSV/october-2021.csv'
 
             ]; 
     
@@ -143,7 +143,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('April 2022', '-'),
                 'purchased_at' => '2022-04-01',
                 'price'=>80.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/april-2022.csv'
+                'filepath'=> '/home/forge/CSV/april-2022.csv'
 
             ]; 
     
@@ -154,7 +154,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('October 2022', '-'),
                 'purchased_at' => '2022-10-01',
                 'price'=>99.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/october-2022.csv'
+                'filepath'=> '/home/forge/CSV/october-2022.csv'
 
             ]; 
     
@@ -165,7 +165,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('April 2023', '-'),
                 'purchased_at' => '2023-04-01',
                 'price'=>89.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/april-2023.csv'
+                'filepath'=> '/home/forge/CSV/april-2023.csv'
 
             ]; 
     
@@ -176,7 +176,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('July 2023', '-'),
                 'purchased_at' => '2023-07-01',
                 'price'=>99.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/july-2023.csv'
+                'filepath'=> '/home/forge/CSV/july-2023.csv'
 
             ]; 
     
@@ -187,7 +187,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('September 2023', '-'),
                 'purchased_at' => '2023-09-01',
                 'price'=>99.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/september-2023.csv'
+                'filepath'=> '/home/forge/CSV/september-2023.csv'
 
             ]; 
     
@@ -198,7 +198,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('May 2024', '-'),
                 'purchased_at' => '2024-05-01',
                 'price'=>119.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/may-2024.csv'
+                'filepath'=> '/home/forge/CSV/may-2024.csv'
 
             ]; 
     
@@ -209,7 +209,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('September 2024', '-'),
                 'purchased_at' => '2024-09-01',
                 'price'=>149.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/september-2024.csv'
+                'filepath'=> '/home/forge/CSV/september-2024.csv'
 
             ]; 
             $healingschool2021 = [
@@ -219,7 +219,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('Healing School 2021', '-'),
                 'purchased_at' => '2021-01-01',
                 'price'=>135.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/healingschool-2021.csv'
+                'filepath'=> '/home/forge/CSV/healingschool-2021.csv'
 
             ]; 
             $healingschool2022 = [
@@ -229,7 +229,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('Healing School 2022', '-'),
                 'purchased_at' => '2022-01-01',
                 'price'=>125.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/healingschool-2022.csv'
+                'filepath'=> '/home/forge/CSV/healingschool-2022.csv'
 
             ]; 
             $healingschool2023 = [
@@ -239,7 +239,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('Healing School 2023', '-'),
                 'purchased_at' => '2023-01-01',
                 'price'=>125.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/healingschool-2023.csv'
+                'filepath'=> '/home/forge/CSV/healingschool-2023.csv'
 
             ]; 
             $healingschool2024 = [
@@ -249,7 +249,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('Healing School 2024', '-'),
                 'purchased_at' => '2024-01-01',
                 'price'=>139.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/healingschool-2024.csv'
+                'filepath'=> '/home/forge/CSV/healingschool-2024.csv'
             ]; 
             $seeranointing = [
                 'title' => 'Seer Anointing',
@@ -258,7 +258,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('Seer Anointing', '-'),
                 'purchased_at' => '2020-01-01',
                 'price'=>55.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/seeranointing.csv'
+                'filepath'=> '/home/forge/CSV/seeranointing.csv'
             ]; 
 
             $childseer = [
@@ -268,7 +268,7 @@ class JunkController extends Controller
                 'slug' => Str::slug('Children Seer Anointing', '-'),
                 'purchased_at' => '2024-09-01',
                 'price'=>125.00,
-                'filepath'=> '/Users/sam/Desktop/CSV/children.csv'
+                'filepath'=> '/home/forge/CSV/children.csv'
             ]; 
 
 
