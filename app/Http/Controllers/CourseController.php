@@ -10,7 +10,7 @@ class CourseController extends Controller
 {
     
 function index($type,$course,$session) {
-    $courses = Course::where('type',$type)->get();
+    $courses = Course::where('type',$type)->where('status','published')->get();
 
     if($session!=null){
         $course = Course::where('type',$type)->where('slug',$course)->first();

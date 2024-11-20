@@ -16,6 +16,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Slug;
+use Laravel\Nova\Fields\Trix;
 
 class Asset extends Resource
 {
@@ -67,8 +68,8 @@ class Asset extends Resource
             ID::make()->sortable()->hideFromIndex()->hideFromDetail(),
             Text::make('Title')->sortable()->rules('required'),
             Slug::make('Slug')->from('Title')->separator('-')->hideFromIndex(),
-            Image::make('Featured Image', 'featuredImage')->disk('public')->path('uploads/')->prunable()->hideFromIndex(),            
-            Textarea::make('Description')->rules('required'),
+            Image::make('Featured Image', 'featuredImage')->disk('public')->path('uploads')->prunable()->hideFromIndex(),            
+            Trix::make('Description')->rules('required'),
             BelongsTo::make('Course', 'course', \App\Nova\Course::class)->searchable(),
             URL::make('Url')->rules('required')->hideFromIndex(),
             Number::make('Order')->rules('required')->hideFromIndex(),
@@ -80,7 +81,10 @@ class Asset extends Resource
             ->displayUsingLabels()
             ->rules('required')
             ->filterable(), 
-            DateTime::make('Published At')->rules('required'),
+            DateTime::make('Published At')->rules('required')->displayUsing(function ($value) {
+                return date("'F jS Y h:i:s A'", strtotime($value)); 
+            }) 
+            
         ];
     }
 

@@ -14,6 +14,17 @@ class Course extends Model
     {
         return $this->hasMany(Asset::class);
     }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'purchases');
+    }
+    
     protected $fillable = [
         'title',
         'status',

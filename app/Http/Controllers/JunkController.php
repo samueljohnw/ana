@@ -266,7 +266,7 @@ class JunkController extends Controller
                 'type' => 'e-course',
                 'status' => 'published',
                 'slug' => Str::slug('Children Seer Anointing', '-'),
-                'purchased_at' => '2020-01-01',
+                'purchased_at' => '2024-09-01',
                 'price'=>125.00,
                 'filepath'=> '/Users/sam/Desktop/CSV/children.csv'
             ]; 

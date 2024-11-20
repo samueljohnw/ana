@@ -42,7 +42,7 @@
                 @foreach($course->assets as $session)
 
                   <div class="cell small-12 medium-6 large-4">
-                    <a href="/training/{{$course->type}}/{{$course->slug}}/{{$session->slug}}" class="thumbnail"><img src="{{$session->featuredImage ?? 'https://placehold.co/600x400/orange/white'}}" alt="{{$session->title}}"></a>
+                    <a href="/training/{{$course->type}}/{{$course->slug}}/{{$session->slug}}" class="thumbnail"><img src="{{ $session->featuredImage ? asset('/' . $session->featuredImage) : 'https://placehold.co/600x400/orange/white' }}" alt="{{$session->title}}"></a>
                   </div>
                 @endforeach
               @endisset
@@ -50,12 +50,12 @@
               @if (isset($courses))
                 @foreach($courses as $course)
                   <div class="cell small-12 medium-6 large-4">
-                    <a href="/training/{{ $course->type}}/{{$course->slug }}" class="thumbnail"><img src="{{'/'.$course->featured_image ?? 'https://placehold.co/600x400/orange/white'}}" alt="{{$course->title}}"></a>
+                    <a href="/training/{{ $course->type}}/{{$course->slug }}" class="thumbnail"><img src="{{ $course->featured_image ? asset('/' . $course->featured_image) : 'https://placehold.co/600x400/orange/white' }}" alt="{{$course->title}}"></a>
                   </div>
                 @endforeach
               @endif
 
-
+             
                 </div>
               </div>
             </div>

@@ -47,7 +47,7 @@ class Event extends Resource
         return [
             ID::make()->sortable()->hideFromDetail()->hideFromIndex(),
             Text::make('Title')->sortable(),
-            Image::make('Featured Image')->disk('public')->path('uploads/')->prunable(),
+            Image::make('Featured Image')->disk('public')->path('uploads')->prunable(),
             Text::make('Location'),
             Date::make('Start Day'),
             Date::make('End Day'),
