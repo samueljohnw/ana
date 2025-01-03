@@ -31,7 +31,6 @@ class Course extends Model
         'slug',
         'price',
         'type'
-
     ];
     
 }

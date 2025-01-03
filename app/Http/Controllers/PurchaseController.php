@@ -4,22 +4,82 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Purchase;
+use App\Models\Course;
+use App\Models\User;
+use Stripe\Stripe;
+use Stripe\Customer;
+use Stripe\PaymentMethod;
+use Stripe\PaymentIntent;
+use Carbon\Carbon;
 
 class PurchaseController extends Controller
 {
-    function purchase($product_id, Request $request ) {
 
-        dd(auth()->user());
-        $purchase = new Purchase;
-        $purchase->user_id = auth()->user();
-        $purchase->course_id = 2;
-        $purchase->product_id = $product_id;
-        $purchase->save();
- 
-        return redirect('welcome');
+
+    function show($id){
+
+        $course = Course::find($id);
+        return view('page.landing.payment',['course'=>$course]);
+
     }
 
-    function seerschool(){}
-    function healingschoool(){}
-    function ecourse() {}
+    function singlePurchase(Request $request){
+
+        $course = Course::find($request->id);
+
+        $stripe = Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            try {
+                // Retrieve or Create Customer by Email
+                $existingCustomer = Customer::all(['email' => $request->email, 'limit' => 1])->data[0] ?? null;
+            
+                if ($existingCustomer) {
+                    $customer = $existingCustomer;
+            
+                    // Attach the PaymentMethod to the existing Customer
+                    $paymentMethod = PaymentMethod::retrieve($request->pm['id']);
+                    $paymentMethod->attach(['customer' => $customer->id]);
+                } else {
+                    // Create a new Customer with the provided PaymentMethod
+                    $customer = Customer::create([
+                        'email' => $request->email,
+                        'payment_method' => $request->pm['id'],
+                    ]);
+                }
+            
+                // Create and Confirm a PaymentIntent
+                $paymentIntent = PaymentIntent::create([
+                    'amount' => $course->price*100, // Amount in cents ($23.00)
+                    'currency' => 'usd',
+                    'payment_method' => $request->pm['id'],
+                    'description' => $course->title. ' - Ana Werner Ministries',
+                    'receipt_email' => $request->email,
+                    'customer' => $customer->id, // Associate with the Customer
+                    'confirm' => true, // Automatically confirm the PaymentIntent
+                    'return_url' => env('APP_URL').'/seer-school',
+
+                ]);
+                // dd($paymentIntent);
+                // Upon Successful Stripe Payment Record the Users Information In the App
+                // Create User if Doesn't Exists
+                $user = User::firstOrNew(['email' =>  $request->email]);
+                $user->name = $request->name;
+                $user->save();
+                
+                // Attach course to user with additional pivot data
+                $user->course()->attach($course->id, [
+                    'ch_id' => $paymentIntent->latest_charge, // Replace with the actual course session ID
+                ]);
+
+                return response()->json(['status' => 'success', 'paymentIntent' => $paymentIntent]);
+            } catch (\Stripe\Exception\CardException $e) {
+                // Handle card-related errors
+                return response()->json(['status' => 'error', 'message' => $e->getError()->message]);
+            } catch (\Exception $e) {
+                // Handle other errors
+                return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
+            }
+
+    }
+
 }

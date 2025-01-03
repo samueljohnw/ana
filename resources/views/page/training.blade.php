@@ -3,7 +3,7 @@
 
 @section('content')
 <section style="text-align:center;">
-  <a style="color:#333;" href="{{route('page.landing.seerschool')}}">Check out New Course</a>
+  <a style="color:#333;" href="{{route('page.landing.payment', 20)}}">Check out New Course</a>
 </section>
     <section class="content-wrapper">
       <div class="container">

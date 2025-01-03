@@ -35,25 +35,16 @@
     </header>
     <!-- Header Ends Here -->
     <!-- Banner Section Start Here -->
-    <section class="banner">
-      <div class="banner-slide slide-1 align-center-middle">
-        <div class="container">
-          <h1>See Heaven.<span class="sub-head">Be Transformed.</span></h1>
-        </div>
-      </div>
-
-      <div class="banner-slide slide-2 align-center-middle">
-        <div class="container">
-          <h1>See Heaven <span class="sub-head">Be Transformed</span></h1>
-        </div>
-      </div>
-      <div class="banner-slide slide-3 align-center-middle">
-        <div class="container">
-          <h1>See Heaven <span class="sub-head">Be Transformed</span></h1>
-        </div>
-      </div>
-    </section>
-    <!-- Banner Section Start Here -->
+      <section class="banner">
+        @foreach($sliders as $items => $slider)
+          <div class="hree banner-slide slide-{{$slider->id}} align-center-middle" style="background-image:url('{{$slider->image}}');background-size: cover;background-repeat: no-repeat;background-position: center center;">
+            <div class="container">
+              <h1>{{$slider->title}}<span class="sub-head">{{$slider->subtitle}}<br/><a class="btn" href="{{$slider->button_link}}">{{$slider->button_text}}</a></span></h1>
+            </div>
+          </div>
+        @endforeach
+      </section>
+    <!-- Banner Section Ends Here -->
     <!-- Ana Info Section Starts Here -->
     <section class="ana-info">
       <div class="container">
@@ -194,7 +185,7 @@
     </section>
     <!-- Online Trainings end Here -->
     <!-- Newsletter Section Starts Here -->
-    <section class="newsletter">
+    <section class="newsletter" style="display:none;">
       <div class="container">
         <div class="row grid-x">
           <div class="columns small-12 medium-8">

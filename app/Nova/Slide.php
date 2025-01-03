@@ -5,32 +5,26 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\HasMany;
-use App\Models\Asset;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\Slug;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Resource;
 
-class Course extends Resource
+class Slide extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Course>
+     * @var class-string<\App\Models\Slide>
      */
-    public static $model = \App\Models\Course::class;
+    public static $model = \App\Models\Slide::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -38,7 +32,7 @@ class Course extends Resource
      * @var array
      */
     public static $search = [
-        'title',
+        'id',
     ];
 
     /**
@@ -50,32 +44,27 @@ class Course extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable()->hideFromIndex()->hideFromDetail(),
-            Text::make('Title')->sortable(),
-            Slug::make('Slug')->from('Title')->separator('-')->hideFromIndex(),
-            Image::make('Featured Image')->disk('public')->path('uploads')->prunable(),
-            Select::make('Status')
-            ->options([
-                'draft' => 'Draft',
-                'published' => 'Published',
-            ]),
-            Select::make('Type')
-            ->options([
-                'healing-school' => 'Healing School',
-                'mentorship' => 'Eagle\'s Spot', 
-                'seer-school' => 'Seer School', 
-                'e-course' => 'E-Course', 
-            ])
-            ->displayUsingLabels()
-            ->rules('required'), 
-            Number::make('Price')
-            ->step(0.01) // Allows decimal input
-            ->sortable()
-            ->rules('required', 'numeric', 'min:0'),
-            Textarea::make('Description'),
-            Text::make('Price Id'),
-            HasMany::make('Assets', 'assets', \App\Nova\Asset::class)->sortable(),
+            ID::make()->sortable(),
 
+            Text::make('Title')
+                ->rules('required'),
+
+            Text::make('Subtitle')
+                ->rules('nullable'),
+
+            Image::make('Image')
+                ->disk('public')->path('uploads')->prunable(),
+
+            Text::make('Button Text')
+                ->rules('nullable'),
+
+            Text::make('Button Link')
+                ->rules('nullable'),
+
+            Number::make('Order')
+                ->sortable()
+                ->rules('required')
+                
         ];
     }
 
