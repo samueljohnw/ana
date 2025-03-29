@@ -59,7 +59,6 @@
         }
     },
     "config": {
-        "auth": "auth.json",
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
