@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\JunkController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 
@@ -30,6 +31,20 @@ Route::get('purchase/{price_id}', [PurchaseController::class, 'show'])->name('pa
 
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::get('/create-admin-user', function () {
+    $user = User::firstOrCreate(
+        ['email' => 'manager@anawerner.org'],
+        [
+            'name' => 'Manager',
+            'password' => Hash::make('securepassword123'),
+            'email_verified_at' => now(),
+        ]
+    );
+
+    return $user ? 'Admin created or already exists' : 'Failed to create user';
+});
 
 // Route::get('checkout/success', [PurchaseController::class, 'checkoutSuccess'])->name('checkout.success');
 // Route::get('checkout/fail', [PurchaseController::class, 'checkoutFail'])->name('checkout.fail');

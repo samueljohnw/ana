@@ -27,7 +27,7 @@ class PurchaseController extends Controller
 
         $course = Course::find($request->id);
 
-        $stripe = Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe::setApiKey(env('STRIPE_SECRET'));
 
             try {
                 // Retrieve or Create Customer by Email
@@ -67,8 +67,8 @@ class PurchaseController extends Controller
                 $user->save();
                 
                 // Attach course to user with additional pivot data
-                $user->course()->attach($course->id, [
-                    'ch_id' => $paymentIntent->latest_charge, // Replace with the actual course session ID
+                $user->course()->syncWithoutDetaching([
+                    $course->id => ['ch_id' => $paymentIntent->latest_charge],
                 ]);
 
                 return response()->json(['status' => 'success', 'paymentIntent' => $paymentIntent]);
