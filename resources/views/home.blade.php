@@ -37,7 +37,7 @@
     <!-- Banner Section Start Here -->
       <section class="banner">
         @foreach($sliders as $items => $slider)
-          <div class="hree banner-slide slide-{{$slider->id}} align-center-middle" style="background-image:url('{{$slider->image}}');background-size: cover;background-repeat: no-repeat;background-position: center center;">
+          <div class="hree banner-slide slide-{{$slider->id}} align-center-middle" style="background-image:url('/{{$slider->image}}');background-size: cover;background-repeat: no-repeat;background-position: center center;">
             <div class="container">
               <h1>{{$slider->title}}<span class="sub-head">{{$slider->subtitle}}<br/><a class="btn" href="{{$slider->button_link}}">{{$slider->button_text}}</a></span></h1>
             </div>
