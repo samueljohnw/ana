@@ -103,7 +103,7 @@
           <div class="column small-12 large-4">
             <div class="card">
               <div class="card-body">
-                <img src="{{ $event->featured_image }}" alt="Card-@php echo $card;$card++; @endphp">
+                <img src="/storage/{{ $event->featured_image }}" alt="Card-@php echo $card;$card++; @endphp">
               </div>
               <div class="card-footer">
                 <a class="date" href="https://anawerner.ziplinestaging.com/events/online-seer-mentorship/">{{ date("F j, Y", strtotime($event->start_day)) }} - {{ date("F j, Y", strtotime($event->end_day)) }}</a>
