@@ -20,7 +20,7 @@
           <hr/>
         <div class="grid-x grid-padding-x">
             @foreach($events as $event)
-                <div class="cell small-4"><img style="max-width=350px;" src="/stoage/{{ $event->featured_image }}">
+                <div class="cell small-4"><img style="max-width=350px;" src="/storage/{{ $event->featured_image }}">
                     <h3 style="color:#333;">
                     {{$event->title}}
                     </h3>
