@@ -42,7 +42,7 @@
                 @foreach($course->assets as $session)
 
                   <div class="cell small-12 medium-6 large-4">
-                    <a href="/training/{{$course->type}}/{{$course->slug}}/{{$session->slug}}" class="thumbnail"><img src="{{ $session->featuredImage ? asset('/storgae/' . $session->featuredImage) : 'https://placehold.co/600x400/orange/white' }}" alt="{{$session->title}}"></a>
+                    <a href="/training/{{$course->type}}/{{$course->slug}}/{{$session->slug}}" class="thumbnail"><img src="{{ $session->featuredImage ? asset('/storage/' . $session->featuredImage) : 'https://placehold.co/600x400/orange/white' }}" alt="{{$session->title}}"></a>
                   </div>
                 @endforeach
               @endisset
