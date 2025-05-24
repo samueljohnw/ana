@@ -72,7 +72,6 @@ class Course extends Resource
             ->step(0.01) // Allows decimal input
             ->sortable()
             ->rules('required', 'numeric', 'min:0'),
-            Textarea::make('Description'),
             Text::make('Price Id'),
             HasMany::make('Assets', 'assets', \App\Nova\Asset::class)->sortable(),
 
