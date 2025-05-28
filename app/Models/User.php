@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
- 
+use App\Models\Purchase;
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -63,5 +64,14 @@ class User extends Authenticatable
 
     public function purchasedCourses()
     {
-        return $this->hasManyThrough(Course::class, Purchase::class, 'user_id', 'id', 'id', 'course_id');    }
+        return $this->hasManyThrough(Course::class, Purchase::class, 'user_id', 'id', 'id', 'course_id');    
+    }
+
+    public function hasCourse($courseId)
+    {   
+        return Purchase::where([
+            ['user_id', '=', $this->id],
+            ['course_id', '=', $courseId],
+        ])->exists();
+    }
 }

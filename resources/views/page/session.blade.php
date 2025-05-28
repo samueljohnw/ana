@@ -20,9 +20,24 @@
 
                 </ul>
               </nav>
-              {{$session->url}}   
+          
+              @if (auth()->user()->hasCourse($course->id))
+                  <p>{{ $session->url }}</p>
+                  <iframe width="560" height="315"
+                          src="https://www.youtube.com/embed/OQSNhk5ICTI?si=2i3PgGXigHsh3ldP"
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen>
+                  </iframe>
+              @else
+                  <h4>Access DENIED</h4>
+                  <p>{{ $session->url }}</p>
+              @endif
 
-              <div style="position:relative; width:100%; height:0px; padding-bottom:56.250%"><iframe allow="fullscreen" allowfullscreen height="100%" src="{{$session->url}}?loop=0" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+
+
 
             </div>
           </div>

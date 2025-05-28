@@ -58,13 +58,13 @@ class Course extends Resource
             ->options([
                 'draft' => 'Draft',
                 'published' => 'Published',
+                'closed' => 'Closed',
             ]),
             Select::make('Type')
             ->options([
-                'healing-school' => 'Healing School',
-                'mentorship' => 'Eagle\'s Spot', 
-                'seer-school' => 'Seer School', 
-                'e-course' => 'E-Course', 
+                'mentorships' => 'Mentorship', 
+                'schools' => 'School', 
+                'e-courses' => 'E-Course', 
             ])
             ->displayUsingLabels()
             ->rules('required'), 

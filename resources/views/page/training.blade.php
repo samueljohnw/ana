@@ -3,7 +3,7 @@
 
 @section('content')
 <section style="text-align:center;">
-  <a style="color:#333;" href="{{route('page.landing.payment', 20)}}">Check out New Course</a>
+  <a style="color:#333;" href="{{route('page.landing.payment', 1)}}">Check out New Course</a>
 </section>
     <section class="content-wrapper">
       <div class="container">
@@ -23,10 +23,9 @@
                Navigate through your past videos.
               </h3>
               </div>
-                <div class="cell small-12 medium-6 large-3"><a href="/training/seer-school" class="thumbnail"><img max-height="500px" src="/assets/images/seer-school.webp" alt="Photo of book."></a></div>
-                <div class="cell small-12 medium-6 large-3"><a href="/training/mentorship" class="thumbnail"><img src="/assets/images/mentorship.webp" alt="Photo of book."></a></div>
-                <div class="cell small-12 medium-6 large-3"><a href="/training/healing-school" class="thumbnail"><img src="/assets/images/healing-school.webp" alt="Photo of book."></a></div>
-                <div class="cell small-12 medium-6 large-3"><a href="/training/e-course" class="thumbnail"><img src="/assets/images/e-courses.webp" alt="Photo of book."></a></div>
+                <div class="cell small-12 medium-4 large-4"><a href="/training/schools" class="thumbnail"><img max-height="500px" src="/assets/images/seer-school.webp" alt="Photo of book."></a></div>
+                <div class="cell small-12 medium-4 large-4"><a href="/training/mentorships" class="thumbnail"><img src="/assets/images/mentorship.webp" alt="Photo of book."></a></div>
+                <div class="cell small-12 medium-4 large-4"><a href="/training/e-courses" class="thumbnail"><img src="/assets/images/e-courses.webp" alt="Photo of book."></a></div>
               </div>
             </div>
           </div>

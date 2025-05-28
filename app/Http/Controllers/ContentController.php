@@ -55,6 +55,31 @@ class ContentController extends Controller
         return view('page.landing.seerschool',['course'=>$course,'clientSecret'=>$setupIntent->client_secret]);  
     }
 
+    function success(Request $request) {
+
+        if (!$request->has('session_id')) {
+            return redirect()->route('page.home');
+        }
+        
+        $sessionId = $request->get('session_id');
+        if ($sessionId === null) {return;}
+
+        $session = Cashier::stripe()->checkout->sessions->retrieve($sessionId);
+        if ($session->payment_status !== 'paid') {return;}
+        
+        $priceId = $session['metadata']['price_id'] ?? null;
+        if ($priceId === null) {return;}   
+        
+        $course = Course::where('price_id',$priceId)->get();
+
+        return 'success';
+    }
+
+    function cancel() {
+
+        return 'fail';
+    }
+
     function welcome(){
         return view('page.welcome');  
 

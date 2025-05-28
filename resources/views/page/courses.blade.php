@@ -9,10 +9,10 @@
             <div class="column small-12 medium-12">
                 <h2>
                 @isset($courses)
-                {{$courses->first()->type}}
+                  {{$courses->first()->type}}
                 @endisset
                 @isset($course)
-                {{$course->title}}
+                  {{$course->title}}
                 @endisset
                 </h2>
 

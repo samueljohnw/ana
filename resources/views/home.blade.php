@@ -172,11 +172,10 @@
         <div class="row">
           <div class="column">
             <ul>
-              <li><a href="/training/seer-school">Seer School</a><i class="list-icon"></i></li>
+              <li><a href="/training/schools">Online Schools</a><i class="list-icon"></i></li>
               <li>
                 <a href="/training/mentorship">The Eagle's spot</a><i class="list-icon"></i>
               </li>
-              <li><a href="/training/healing-school">Healing School</a><i class="list-icon"></i></li>
               <li><a href="/training/e-course">E-Course</a><i class="list-icon"></i></li>
             </ul>
           </div>

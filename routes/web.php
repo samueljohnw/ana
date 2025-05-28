@@ -5,10 +5,13 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PurchaseController;
-use App\Http\Controllers\JunkController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use Laravel\Cashier\Cashier;
+use App\Models\Course;
+
+// use App\Http\Controllers\JunkController;
+
+// use App\Models\User;
 
 
 Route::get('/', [ContentController::class, 'home'])->name('page.home');
@@ -25,31 +28,10 @@ Route::get('auth/token/{token}', [AuthController::class, 'login'])->name('login.
 
 Route::post('purchase', [PurchaseController::class, 'singlePurchase'])->name('singlePurchase');
 Route::get('purchase/{price_id}', [PurchaseController::class, 'show'])->name('page.landing.payment');
+Route::get('welcome-to-the-course', [ContentController::class, 'success'])->name('page.success');
+Route::get('payment-cancelled', [ContentController::class, 'cancel'])->name('page.cancel');
 
 
-//Route::get('welcome', [ContentController::class, 'welcome'])->name('welcome');
-
-
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
-
-Route::get('/create-admin-user', function () {
-    $user = User::firstOrCreate(
-        ['email' => 'manager@anawerner.org'],
-        [
-            'name' => 'Manager',
-            'password' => Hash::make('securepassword123'),
-            'email_verified_at' => now(),
-        ]
-    );
-
-    return $user ? 'Admin created or already exists' : 'Failed to create user';
-});
-
-// Route::get('checkout/success', [PurchaseController::class, 'checkoutSuccess'])->name('checkout.success');
-// Route::get('checkout/fail', [PurchaseController::class, 'checkoutFail'])->name('checkout.fail');
-
-// Route::post('checkout/{price_id}', [PurchaseController::class, 'checkout'])->name('checkout');
 
 
 // This is for the import of data
