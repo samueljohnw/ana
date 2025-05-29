@@ -70,7 +70,6 @@ class Course extends Resource
             ])
             ->displayUsingLabels()
             ->rules('required'), 
-            Boolean::make('Is Live'),
 
             Number::make('Price')
             ->step(0.01) // Allows decimal input

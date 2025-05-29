@@ -32,7 +32,5 @@ class Course extends Model
         'price',
         'type'
     ];
-    protected $casts = [
-        'is_live' => 'boolean',
-    ];
+
 }
