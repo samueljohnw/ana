@@ -43,17 +43,17 @@ class ContentController extends Controller
     function eaglesnetwork() {
         return view('page.eaglesnetwork');  
     }
-    function seerschool() {
+    // function seerschool() {
         
-        $course = Course::where('status','published')->where('id',20)->first();
+    //     $course = Course::where('status','published')->where('id',20)->first();
 
-        Stripe::setApiKey(env('STRIPE_SECRET'));
+    //     Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        // Create a SetupIntent
-        $setupIntent = \Stripe\SetupIntent::create();
+    //     // Create a SetupIntent
+    //     $setupIntent = \Stripe\SetupIntent::create();
 
-        return view('page.landing.seerschool',['course'=>$course,'clientSecret'=>$setupIntent->client_secret]);  
-    }
+    //     return view('page.landing.seerschool',['course'=>$course,'clientSecret'=>$setupIntent->client_secret]);  
+    // }
 
     function success(Request $request) {
 

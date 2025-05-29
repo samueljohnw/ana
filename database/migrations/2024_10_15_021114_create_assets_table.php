@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('order')->default(1);
             $table->string('status')->nullable();
             $table->string('slug')->nullable();
+            $table->boolean('is_live')->default(false);
             $table->dateTime('published_at', precision: 0);
             $table->timestamps();
         });

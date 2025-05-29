@@ -17,6 +17,7 @@ use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Boolean;
 
 class Asset extends Resource
 {
@@ -81,6 +82,7 @@ class Asset extends Resource
             ->displayUsingLabels()
             ->rules('required')
             ->filterable(), 
+            Boolean::make('Is Live'),
             DateTime::make('Published At')->rules('required')->displayUsing(function ($value) {
                 return date("'F jS Y h:i:s A'", strtotime($value)); 
             }) 

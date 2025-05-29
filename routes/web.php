@@ -23,7 +23,7 @@ Route::get('event/{id}', [EventController::class, 'show'])->name('page.event.det
 Route::get('training', [ContentController::class, 'training'])->name('page.training');
 Route::get('training/{type?}/{course?}/{session?}', [ContentController::class, 'course'])->name('page.training.course');
 Route::get('eagles-network', [ContentController::class, 'eaglesnetwork'])->name('page.eaglesnetwork');
-Route::get('seer-school', [ContentController::class, 'seerschool'])->name('page.landing.seerschool');
+// Route::get('seer-school', [ContentController::class, 'seerschool'])->name('page.landing.seerschool');
 Route::post('auth/attempt', [AuthController::class, 'attempt'])->name('attempt');
 Route::get('auth/token/{token}', [AuthController::class, 'login'])->name('login.user');
 
