@@ -1,5 +1,6 @@
 @extends('template.fullwidth')
 
+@section('title', 'Eagles Network Inc | Ana Werner Ministries')
 
 @section('content')
 <section class="content-wrapper">

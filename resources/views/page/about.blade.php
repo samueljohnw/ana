@@ -1,6 +1,6 @@
 @extends('template.fullwidth')
 
-
+@section('title', 'About Ana Werner | Ana Werner Ministries')
 @section('content')
 <style>
   ul{margin:10px}

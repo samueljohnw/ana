@@ -1,4 +1,5 @@
 @extends('template.fullwidth')
+@section('title', 'Success | Ana Werner Ministries')
 
 
 @section('content')

@@ -7,6 +7,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
+
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
@@ -68,6 +70,8 @@ class Course extends Resource
             ])
             ->displayUsingLabels()
             ->rules('required'), 
+            Boolean::make('Is Live'),
+
             Number::make('Price')
             ->step(0.01) // Allows decimal input
             ->sortable()

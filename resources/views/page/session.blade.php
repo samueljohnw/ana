@@ -1,5 +1,6 @@
 @extends('template.fullwidth')
 
+@section('title', 'Session | Ana Werner Ministries')
 
 @section('content')
     <section class="content-wrapper">

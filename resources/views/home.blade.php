@@ -106,9 +106,9 @@
                 <img src="/storage/{{ $event->featured_image }}" alt="Card-@php echo $card;$card++; @endphp">
               </div>
               <div class="card-footer">
-                <a class="date" href="https://anawerner.ziplinestaging.com/events/online-seer-mentorship/">{{ date("F j, Y", strtotime($event->start_day)) }} - {{ date("F j, Y", strtotime($event->end_day)) }}</a>
-                <a class="about-card" href="https://anawerner.ziplinestaging.com/events/online-seer-mentorship/">{{$event->title}}</a>
-                <a class="status" href="https://anawerner.ziplinestaging.com/events/online-seer-mentorship/">{{$event->location}}</a>
+                {{ date("F j, Y", strtotime($event->start_day)) }} - {{ date("F j, Y", strtotime($event->end_day)) }}
+                <a class="about-card" href="/event/{{$event->id}}">{{$event->title}}</a>
+                {{$event->location}}
               </div>
             </div>
           </div>          

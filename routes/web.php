@@ -18,6 +18,8 @@ Route::get('/', [ContentController::class, 'home'])->name('page.home');
 Route::get('about', [ContentController::class, 'about'])->name('page.about');
 Route::get('books', [ContentController::class, 'books'])->name('page.books');
 Route::get('events', [EventController::class, 'index'])->name('page.events');
+Route::get('event/{id}', [EventController::class, 'show'])->name('page.event.detail');
+
 Route::get('training', [ContentController::class, 'training'])->name('page.training');
 Route::get('training/{type?}/{course?}/{session?}', [ContentController::class, 'course'])->name('page.training.course');
 Route::get('eagles-network', [ContentController::class, 'eaglesnetwork'])->name('page.eaglesnetwork');

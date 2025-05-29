@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('featured_image')->nullable();
             $table->string('type')->nullable();
+            $table->boolean('is_live')->default(false);
             $table->string('status')->nullable();
             $table->string('slug')->nullable();
             $table->string('price_id')->nullable();

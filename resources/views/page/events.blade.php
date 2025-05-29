@@ -1,5 +1,6 @@
 @extends('template.fullwidth')
 
+@section('title', 'Events | Ana Werner Ministries')
 
 @section('content')
 
@@ -20,9 +21,13 @@
           <hr/>
         <div class="grid-x grid-padding-x">
             @foreach($events as $event)
-                <div class="cell small-4"><img style="max-width=350px;" src="/storage/{{ $event->featured_image }}">
-                    <h3 style="color:#333;">
-                    {{$event->title}}
+                   <a style="color:#333;" href="/event/{{$event->id}}">
+                    <div class="cell small-4"><img style="max-width=350px;" src="/storage/{{ $event->featured_image }}">
+                   
+                    </a>
+                
+                    <h3 >
+                      <a style="color:#333;" href="/event/{{$event->id}}">{{$event->title}}</a>
                     </h3>
                     <b>
                     {{ date("F j, Y", strtotime($event->start_day)) }} - {{ date("F j, Y", strtotime($event->end_day)) }}

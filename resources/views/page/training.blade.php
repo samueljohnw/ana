@@ -1,5 +1,6 @@
 @extends('template.fullwidth')
 
+@section('title', 'Training by Ana Werner | Ana Werner Ministries')
 
 @section('content')
 <section style="text-align:center;">
